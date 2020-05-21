@@ -14,7 +14,7 @@ RSpec.describe 'Spec Harness' do
         expected_attributes = {
             name: 'Item Qui Veritatis',
             description: 'Totam labore quia harum dicta eum consequatur qui. Corporis inventore consequatur. Illum facilis tempora nihil placeat rerum sint est. Placeat ut aut. Eligendi perspiciatis unde eum sapiente velit.',
-            unit_price: "906.17",
+            unit_price: 906.17,
             merchant_id: 9
         }
 
@@ -44,7 +44,7 @@ RSpec.describe 'Spec Harness' do
       it 'can create and delete an item' do
         name = "Shiny Itemy Item"
         description = "It does a lot of things real good"
-        unit_price = "5011.96"
+        unit_price = 5011.96
         merchant_id = 43
 
         body = {
@@ -82,7 +82,7 @@ RSpec.describe 'Spec Harness' do
       it 'can update an item' do
         name = "Shiny Itemy Item"
         description = "It does a lot of things real good"
-        unit_price = "5011.0"
+        unit_price = 5011
         merchant_id = 43
 
         body = {
