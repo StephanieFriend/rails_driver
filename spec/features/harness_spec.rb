@@ -12,10 +12,10 @@ RSpec.describe 'Spec Harness' do
         response = conn('/api/v1/items/179').get
 
         expected_attributes = {
-          name: 'Item Qui Veritatis',
-          description: 'Totam labore quia harum dicta eum consequatur qui. Corporis inventore consequatur. Illum facilis tempora nihil placeat rerum sint est. Placeat ut aut. Eligendi perspiciatis unde eum sapiente velit.',
-          unit_price: 906.17,
-          merchant_id: 9
+            name: 'Item Qui Veritatis',
+            description: 'Totam labore quia harum dicta eum consequatur qui. Corporis inventore consequatur. Illum facilis tempora nihil placeat rerum sint est. Placeat ut aut. Eligendi perspiciatis unde eum sapiente velit.',
+            unit_price: "906.17",
+            merchant_id: 9
         }
 
         json = JSON.parse(response.body, symbolize_names: true)
@@ -44,14 +44,14 @@ RSpec.describe 'Spec Harness' do
       it 'can create and delete an item' do
         name = "Shiny Itemy Item"
         description = "It does a lot of things real good"
-        unit_price = 5011.96
+        unit_price = "5011.96"
         merchant_id = 43
 
         body = {
-          name: name,
-          description: description,
-          unit_price: unit_price,
-          merchant_id: merchant_id
+            name: name,
+            description: description,
+            unit_price: unit_price,
+            merchant_id: merchant_id
         }
 
         # Create a item
@@ -82,14 +82,14 @@ RSpec.describe 'Spec Harness' do
       it 'can update an item' do
         name = "Shiny Itemy Item"
         description = "It does a lot of things real good"
-        unit_price = 5011
+        unit_price = "5011.0"
         merchant_id = 43
 
         body = {
-          name: name,
-          description: description,
-          unit_price: unit_price,
-          merchant_id: merchant_id
+            name: name,
+            description: description,
+            unit_price: unit_price,
+            merchant_id: merchant_id
         }
 
         response = conn('/api/v1/items/75').patch do |request|
@@ -104,10 +104,10 @@ RSpec.describe 'Spec Harness' do
         expect(item[:attributes][:merchant_id]).to eq(merchant_id)
 
         original_body = {
-          name: 'Item Autem Eligendi',
-          description:'Aliquam dolores dolore voluptas nesciunt non praesentium. Eum nihil repellendus modi. Aut in expedita nesciunt. Ut aliquam dicta omnis voluptas.',
-          unit_price: '29949',
-          merchant_id: '3',
+            name: 'Item Autem Eligendi',
+            description:'Aliquam dolores dolore voluptas nesciunt non praesentium. Eum nihil repellendus modi. Aut in expedita nesciunt. Ut aliquam dicta omnis voluptas.',
+            unit_price: '29949',
+            merchant_id: '3',
         }
         conn("/api/v1/items/").patch do |request|
           request.body = original_body
@@ -215,9 +215,9 @@ RSpec.describe 'Spec Harness' do
     it 'can get merchant for an item' do
       response = conn('/api/v1/items/209/merchant').get
       json = JSON.parse(response.body, symbolize_names: true)
-      expected_id = 11
+      expected_id = '11'
 
-      expect(json[:data][:attributes][:id]).to eq(expected_id)
+      expect(json[:data][:id]).to eq(expected_id)
     end
   end
 
